@@ -34,12 +34,12 @@ Edit your `hosts` files and add alias for this docker container
 * Clone assignment from the intern `git clone https://github.com/boskos-q/test-assignment.git`
 * run `./setup.sh <intern-project-folder>` e.g. `./setup.sh test-assignment`
 * Go to the newly created `zadatak` folder which is root of the project
-* Optional: `composer install` if composer is used
+* *Optional:* `composer install` if composer is used
 * Start stack `docker-compose up`
 * Open browser and navigate to: `http://dev.praksa.local`
 * HF :)
 
-*You can clone as many projects as you want to the projects folder, and just repeat steps from Installing & Running. Setup command will re-create `zadatak` folder.*
+*You can clone as many projects as you want to the `projects` folder, and just repeat steps from Installing & Running. `setup.sh` script will re-create `zadatak` folder for you from scratch.*
 
 
 ## Authors
