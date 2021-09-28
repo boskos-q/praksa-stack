@@ -1,0 +1,57 @@
+version: '3.7'
+services:
+  # Web server
+  webserver:
+    image: abiosoft/caddy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - './config/caddy:/root/.caddy'
+      - './config/caddy/Caddyfile:/etc/Caddyfile'
+      - './logs/caddy/:/var/log/caddy'
+    networks:
+      praksa:
+        aliases:
+          - dev.praksa.local
+  # Databases
+  mysql:
+    image: 'mysql:5.7'
+    command: --default-authentication-plugin=mysql_native_password --explicit_defaults_for_timestamp
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: symfony
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: password
+    ports:
+      - '3306:3306'
+    volumes:
+      - 'mysql-data:/var/lib/mysql'
+    networks:
+      - praksa 
+  # Apps
+  praksa-local:
+    build:
+      context: projects/zadatak
+      dockerfile: Dockerfile
+      args:
+        ENVIRONMENT: dev
+        DEBUG: 1
+        APP_SECRET: 5267a2d54042c1cd477d2c0483215b9c
+    environment:
+      APP_ENV: dev
+      APP_DEBUG: 1
+      APP_SECRET: 5267a2d54042c1cd477d2c0483215b9c
+    depends_on:
+      - mysql
+      - webserver
+    volumes:
+      - './projects/zadatak:/app:cached'
+      - './projects/zadatak/vendor:/app/vendor:delegated'
+      - '/app/var'
+    networks:
+      - praksa 
+volumes:
+  mysql-data:
+networks:
+  praksa:

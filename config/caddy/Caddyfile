@@ -1,0 +1,12 @@
+https://dev.praksa.local http://dev.praksa.local http://webserver {
+    tls self_signed
+    gzip
+
+    proxy / praksa-local:9001 {
+        transparent
+        websocket
+    }
+
+    log stdout
+    errors stderr
+}
