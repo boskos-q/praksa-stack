@@ -31,7 +31,7 @@ Edit your `hosts` files and add alias for this docker container
 
 * Clone this project
 * Go to the projects subfolder
-* Clone assignment from the intern `git clone https://github.com/boskos-q/test-assignment.git 
+* Clone assignment from the intern `git clone https://github.com/boskos-q/test-assignment.git`
 * run `./setup.sh <intern-project-folder>` e.g. `./setup.sh test-assignment`
 * Go to the newly created `zadatak` folder which is root of the project
 * Optional: `composer install` if composer is used
