@@ -37,5 +37,5 @@ COPY . /app
 #RUN mkdir -p ./var/cache/$APP_ENV ./var/log && chmod -R 2777 ./var
 
 # Composer
-RUN composer install -n --no-scripts --prefer-dist
+#RUN composer install -n --no-scripts --prefer-dist
 
