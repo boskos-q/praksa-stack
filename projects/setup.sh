@@ -12,7 +12,7 @@ rm -rf zadatak
 # create new dir
 mkdir zadatak
 # copy config
-cp -R ../config/projects-default/* zadatak
+cp -R ../config/projects-default/. zadatak
 # copy project to zadatak folder
 cp -R $ZADATAK/* zadatak
 echo "Projekat je spreman"
