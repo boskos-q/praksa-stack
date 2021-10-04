@@ -14,5 +14,5 @@ mkdir zadatak
 # copy config
 cp -R ../config/projects-default/. zadatak
 # copy project to zadatak folder
-cp -R $ZADATAK/* zadatak
+cp -R $ZADATAK/. zadatak
 echo "Projekat je spreman"
